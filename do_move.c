@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   do_move.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmardere <mmardere@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/15 20:41:27 by mmardere          #+#    #+#             */
+/*   Updated: 2023/08/15 20:41:27 by mmardere         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 /* do_rev_rotate_both:
@@ -37,7 +49,7 @@ static void	do_rotate_both(t_node **a, t_node **b, int *cost_a, int *cost_b)
 
 /* do_rotate_a:
 *	Rotates stack A until it is in position. If the cost is negative,
-*	the stack will be reverse rotated, if it is positive, it will be 
+*	the stack will be reverse rotated, if it is positive, it will be
 *	rotated.
 */
 static void	do_rotate_a(t_node **a, int *cost)
@@ -59,7 +71,7 @@ static void	do_rotate_a(t_node **a, int *cost)
 
 /* do_rotate_b:
 *	Rotates stack B until it is in position. If the cost is negative,
-*	the stack will be reverse rotated, if it is positive, it will be 
+*	the stack will be reverse rotated, if it is positive, it will be
 *	rotated.
 */
 static void	do_rotate_b(t_node **b, int *cost)

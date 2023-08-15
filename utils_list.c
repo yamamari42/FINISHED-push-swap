@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_list.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmardere <mmardere@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/15 20:42:41 by mmardere          #+#    #+#             */
+/*   Updated: 2023/08/15 20:44:33 by mmardere         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 /////////// creates a new node /////////////////
@@ -45,15 +57,15 @@ void	node_add_back(t_node **lst, t_node *new)
 
 int	stack_size(t_node *stack)
 {
-		int	size;
+	int	size;
 
-		size = 0;
-		if (!stack)
-				return (0);
-		while (stack != NULL)
-		{
-				stack = stack->next;
-				size++;
-		}
-		return (size);
+	size = 0;
+	if (!stack)
+		return (0);
+	while (stack != NULL)
+	{
+		stack = stack->next;
+		size++;
+	}
+	return (size);
 }

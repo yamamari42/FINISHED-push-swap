@@ -1,14 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmardere <mmardere@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/15 20:42:11 by mmardere          #+#    #+#             */
+/*   Updated: 2023/08/15 20:47:37 by mmardere         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
-
-// Brings the bottom element of a stack to the top.
-
-
-t_node	*get_stack_bottom(t_node *stack)
-{
-	while (stack && stack->next != NULL)
-		stack = stack->next;
-	return (stack);
-}
 
 /* get_stack_before_bottom:
 *	Returns the second to last element of the stack.

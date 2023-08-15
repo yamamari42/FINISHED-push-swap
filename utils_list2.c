@@ -1,31 +1,45 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_list2.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmardere <mmardere@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/15 20:42:48 by mmardere          #+#    #+#             */
+/*   Updated: 2023/08/15 20:44:11 by mmardere         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 //////// get node with highest index ///////////
 
 int	highest_index(t_node *stack)
 {
-		int	index;
+	int	index;
 
-		index = stack->index;
-		while (stack)
-		{
-				if (stack->index > index)
-						index = stack->index;
-				stack = stack->next;
-		}
-		return (index);
+	index = stack->index;
+	while (stack)
+	{
+		if (stack->index > index)
+				index = stack->index;
+		stack = stack->next;
+	}
+	return (index);
 
 }
 
 /////// get node with lowest index ////////////
 
-int lowest_index(t_node **stack_a)
+int	lowest_index(t_node **stack_a)
 {
-	int lowest;
-	t_node *tmp;
-	int position = 0;
-	int	index = 0;
+	int		lowest;
+	t_node	*tmp;
+	int		position;
+	int		index;
 
+	position = 0;
+	index = 0;
 	tmp = *stack_a;
 	lowest = INT_MAX;
 	while (tmp)
@@ -65,16 +79,16 @@ t_node	*get_node_before_tail(t_node *stack)
 
 void	find_pos(t_node **stack)
 {
-		int	i;
-		t_node	*tmp;
+	int		i;
+	t_node	*tmp;
 
-		i = 0;
-		tmp = *stack;
-		while(tmp)
-		{
-			tmp->pos = i;
-			tmp = tmp->next;
-			i++;
-		}
+	i = 0;
+	tmp = *stack;
+	while (tmp)
+	{
+		tmp->pos = i;
+		tmp = tmp->next;
+		i++;
+	}
 }
 

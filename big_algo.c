@@ -1,139 +1,87 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   big_algo.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmardere <mmardere@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/15 20:41:17 by mmardere          #+#    #+#             */
+/*   Updated: 2023/08/15 21:00:35 by mmardere         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #include "push_swap.h"
 
-//int	check_if_correct_order(t_node *stack_a)
-//{
-//		t_node	*tail;
-//
-//		tail = get_tail(stack_a);
-//		if(stack_a < tail)
-//				return (0);
-//		else
-//				return (1);
-//
-//}
-//
-//
-//void	get_to_top_of_a(t_node **stack_a, t_node **stack_b)
-//{
-//		int	i;
-//		t_node *a;
-//		t_node *b;
-//		t_node	*tail;
-//
-//		b = *stack_b;
-//		while (b)
-//		{
-//				i = 0;
-//				a = *stack_a;
-//				tail = get_tail(*a);
-//				while (a)
-//				{
-//						if (check_if_correcr_order(*a) == 0)
-//								printf("stack in order\n");
-//				}
-//		}
-//}
-
-
-
-//				while (a && a->index < tail->index)
-//				{
-//						if (b->index > tail->index)
-//
-//						if (b->index > a->index)
-//						{
-//								printf("~~~~~~~~~~~ index b [%d] > index a [%d]\n", b->index, a->index);
-//								a = a->next;
-//								i++;
-//						}
-//						else
-//								break ;
-//				}
-//				while (a && a->index > tail->index)
-//				{
-//						if (b->index > a->index)
-//						{
-//								a = a->next;
-//								i++;
-//						}
-//						//else
-//
-//				}
-//				b->to_top_a = i;
-//				b = b->next;
-//
-//		}
-//}
 
 //////// pushes all except 3 to stack B, small down, big on top ///////
 
 void	pb_leave_three(t_node **stack_a, t_node **stack_b)
 {
-		int	i;
-		int	size;
-		int mid;
+	int	i;
+	int	size;
+	int	mid;
 
-		i = 0;
-		size = stack_size(*stack_a);
-		mid = size /2;
-		while (size > 3)
-		{
-				pb(stack_a, stack_b);
-				if ((*stack_b)->index <= mid && stack_size(*stack_b) > 1)
-						ra(stack_b);
-				size--;
-		}
-		do_small_algo(stack_a);
-		return ;
+	i = 0;
+	size = stack_size(*stack_a);
+	mid = size / 2;
+	while (size > 3)
+	{
+		pb(stack_a, stack_b);
+		if ((*stack_b)->index <= mid && stack_size(*stack_b) > 1)
+			ra(stack_b);
+		size--;
+	}
+	do_small_algo(stack_a);
+	return ;
 }
 
 ///////// counts No of moves for the 2nd half of the stack B /////////
 
 int	get_rra_count(t_node *tmp2)
 {
-		int	i;
-		t_node	*tmp;
+	int		i;
+	t_node	*tmp;
 
-		i = 0;
-		tmp = tmp2;
-		while (tmp)
-		{
-				tmp = tmp->next;
-				i++;
-		}
-		return(i);
+	i = 0;
+	tmp = tmp2;
+	while (tmp)
+	{
+		tmp = tmp->next;
+		i++;
+	}
+	return (i);
 }
 
 /////// counts No of moves to put each element to the top of stack /////
 
 void	get_to_top_of_b(t_node **stack_b)
 {
-		int	size;
-		t_node	*tmp;
+	int		size;
+	t_node	*tmp;
 
-		size = stack_size(*stack_b);
-		tmp = *stack_b;
-		if (size == 1)
-				tmp->to_top_b = 0;
-		else if (size == 2)
+	size = stack_size(*stack_b);
+	tmp = *stack_b;
+	if (size == 1)
+		tmp->to_top_b = 0;
+	else if (size == 2)
+	{
+		tmp->to_top_b = 0;
+		tmp->next->to_top_b = 1;
+	}
+	else if (size >= 3)
+	{
+		while (tmp && tmp->pos <= size / 2 + 1)
 		{
-				tmp->to_top_b = 0;
-				tmp->next->to_top_b = 1;
+				tmp->to_top_b = tmp->pos - 1;
+				tmp = tmp->next;
 		}
-		else if (size >= 3)
+		while (tmp)
 		{
-				while (tmp && tmp->pos <= size/2 + 1)
-				{
-						tmp->to_top_b = tmp->pos - 1;
-						tmp = tmp->next;
-				}
-				while (tmp)
-				{
-						tmp->to_top_b = get_rra_count(tmp);
-						tmp = tmp->next;
-				}
+				tmp->to_top_b = get_rra_count(tmp);
+				tmp = tmp->next;
 		}
+	}
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -287,8 +235,6 @@ static void	shift_stack(t_node **stack_a)
 	int	size;
 
 	size = stack_size(*stack_a);
-	// lowest_pos = lowest_index(stack_a);
-	// printf("lowest pos = %d\n", lowest_pos);
 	lowest_pos = get_lowest_index_position(stack_a);
 	if (lowest_pos > size / 2)
 	{
@@ -359,77 +305,14 @@ void	tiny_sort(t_node **stack)
 
 void	do_big_algo(t_node **stack_a, t_node **stack_b)
 {
-		push_all_save_three(stack_a, stack_b);
-		tiny_sort(stack_a);
-		while (*stack_b)
-		{
-			printf("STACK A\n");
-			print(stack_a);
-			printf("\nStack B\n");
-			print(stack_b);
-				get_target_position(stack_a, stack_b);
-				get_cost(stack_a, stack_b);
-				do_cheapest_move(stack_a, stack_b);
-			printf("----------------------------------\n");
-				printf("STACK A\n");
-			print(stack_a);
-			printf("\nStack B\n");
-			print(stack_b);
-		}
-		//printf("________STACK A BEFORE FINAL SORT_________\n");
-		//print(stack_a);
-		if (!check_if_sorted(stack_a))
-		{
-				printf("ENTERED\n");
-				shift_stack(stack_a);
-		}
-
-
-//		find_pos(stack_a);
-//		find_pos(stack_b);
-//		get_to_top_of_b(stack_b);
-
+	push_all_save_three(stack_a, stack_b);
+	tiny_sort(stack_a);
+	while (*stack_b)
+	{
+		get_target_position(stack_a, stack_b);
+		get_cost(stack_a, stack_b);
+		do_cheapest_move(stack_a, stack_b);
+	}
+	if (!check_if_sorted(stack_a))
+		shift_stack(stack_a);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//void where_to_put_me(t_node **stack_a, t_node **stack_b)
-//{
-//		t_node *tmp_a;
-//		t_node *tmp_b;
-//		int		i;
-//
-//		tmp_b = *stack_b;
-//
-//		while(tmp_b)
-//		{
-//			i = 0;
-//			tmp_a = *stack_a;
-//			while (tmp_a)
-//			{
-//					if (tmp_b->index > tmp_a->index)
-//					{
-//							i++;
-//							tmp_a = tmp_a->next;
-//					}
-//					else
-//							break ;
-//			}
-//			tmp_b->target_pos = i;
-//			to_the_top(tmp_b, stack_b);
-//			tmp_b = tmp_b->next;
-//		}
-//}
-
