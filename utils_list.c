@@ -26,6 +26,8 @@ t_node	*newnode(int content)
 	return (new);
 }
 
+///////// adds a node to the back /////////////
+
 void	node_add_back(t_node **lst, t_node *new)
 {
 	t_node	*tmp;
@@ -41,19 +43,7 @@ void	node_add_back(t_node **lst, t_node *new)
 	}
 }
 
-//t_node	*get_tail(t_node *stack)
-//{
-//	while (stack && stack->next != NULL)
-//		stack = stack->next;
-//	return (stack);
-//}
-//
-//t_node	*get_node_before_tail(t_node *stack)
-//{
-//	while (stack && stack->next && stack->next->next != NULL)
-//		stack = stack->next;
-//	return (stack);
-//}
+///////// gets stack size /////////////////////
 
 int	stack_size(t_node *stack)
 {

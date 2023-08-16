@@ -12,62 +12,26 @@
 
 #include "push_swap.h"
 
-///////// stocks arguments in a **, splits if one argument //////////////
-
-int	stock_args(t_s *s, int argc, char **argv)
+int	err(void)
 {
-	int	i;
-	int	j;
-
-	if (argc > 1)
-	{
-		if (argc == 2)
-		{
-			i = 0;
-			j = 0;
-			s->args = ft_split(argv[1], ' ');
-			if (!s->args)
-				err();
-			if (s->args[i] == NULL)
-				return (0);
-			while (s->args[i])
-			{
-				while (s->args[i][j])
-					j++;
-				j = 0;
-				i++;
-			}
-			return (1);
-		}
-		else if (argc > 2)
-		{
-			i = 1;
-			j = 0;
-			s->args = (char **)malloc(argc * sizeof(char *));
-			while (argv[i] && argv[i] != NULL)
-				s->args[j++] = ft_strdup(argv[i++]);
-			s->args[j] = NULL;
-			return (1);
-		}
-		return (0);
-	}
-	return (-1);
+	write(2, "Error\n", 6);
+	return (0);
 }
 
 ///////// print stack ///////////////
-
-void	print(t_node **stack_a)
-{
-	t_node	*i;
-
-	i = *stack_a;
-	while (i)
-	{
-		printf("%d\n", i->content);
-		i = i->next;
-	}
-}
-
+//
+//void	print(t_node **stack_a)
+//{
+//	t_node	*i;
+//
+//	i = *stack_a;
+//	while (i)
+//	{
+//		printf("%d\n", i->content);
+//		i = i->next;
+//	}
+//}
+//
 /////////// main ////////////////////
 
 int	main(int argc, char **argv)

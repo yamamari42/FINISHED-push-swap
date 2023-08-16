@@ -28,7 +28,6 @@ typedef	struct s_node
 		int	content;
 		int index;
 		int pos;
-//		int	to_top_a;//number of moves to be made to get the element on top of the stack A
 		int	to_top_b;//number of moves to be made to get the element on top of the stack B
 		int	target_pos;
 		int	cost_a;
@@ -36,32 +35,14 @@ typedef	struct s_node
 		struct s_node *next;
 }	t_node;
 
-
-
 typedef struct structure
 {
 		char	**args;
 		int	ac;
 }	t_s;
 
-
-
-
-/*typedef struct s_stack
-{
-	int			val;		//le nombre a trier
-	int			index;		//son index dans la liste
-	int			pos;		//pos actuelle dans sa stack
-	int			target_pos;	//pour les elem de stack B,la pos cible dans la stack A ou elle devrait etre
-	int			cost_a;		//nombre d'actions pour pivoter la stack A afin que l'element
-						//a la pos cible ateigne le sommet de sack A
-	int			cost_b;		//nombre d'actions pour pivoter la stack B afin que l'element
-						//a la pos cible ateigne le sommet de sack A
-	struct	s_stack	*next;
-}	t_stack;
-*/
-
 int				err(void);
+int				split_args(t_s *s, char **argv);
 int				stock_args(t_s *s, int argc, char **argv);
 int				check_if_number(t_s *s);
 int				check_double(t_node **stack_a);

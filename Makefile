@@ -2,8 +2,8 @@
 NAME = push_swap
 
 SRCS = main.c \
-	   error.c \
 	   parsing.c \
+	   parsing2.c \
 	   utils_list.c \
 	   utils_list2.c \
 	   push.c \
@@ -13,7 +13,6 @@ SRCS = main.c \
 	   sort.c \
 	   small_algo.c \
 	   big_algo.c \
-	   position.c \
 	   do_move.c
 
 OBJS = $(SRCS:.c=.o)

@@ -55,8 +55,6 @@ int	lowest_index(t_node **stack_a)
 	return (position);
 }
 
-
-
 ///////// get last node /////////////////////////
 
 t_node	*get_tail(t_node *stack)
@@ -91,4 +89,3 @@ void	find_pos(t_node **stack)
 		i++;
 	}
 }
-

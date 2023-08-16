@@ -12,45 +12,6 @@
 
 #include "push_swap.h"
 
-////////// check if  + or - /////////////////////
-
-int	is_sign(char c)
-{
-	if (c == '+' || c == '-')
-		return (1);
-	else
-		return (0);
-}
-
-/////////// check if only numbers ///////////////
-
-int	check_if_number(t_s *s)
-{
-	int	i;
-	int	j;
-	int	count;
-
-	i = 0;
-	while (s->args[i])
-	{
-		count = 0;
-		j = -1;
-		while (is_sign(s->args[i][++j]) && s->args[i][j + 1] != '\0')
-			count++;
-		if (count > 1)
-			return (0);
-		while (ft_isdigit(s->args[i][j]) && ft_isdigit(s->args[i][j + 1]))
-				j++;
-		if (!(s->args[i][j] == '\0') && !ft_isdigit(s->args[i][j]))
-			return (0);
-		if (!(ft_isdigit(s->args[i][j + 1])))
-			if (ft_isdigit(s->args[i][j]) && (s->args[i][j + 1] != '\0'))
-				return (0);
-		i++;
-	}
-	return (1);
-}
-
 //////////// upgraded + INT_MIN INT_MAX ////////////////////////
 
 long long int	upgraded_atoi(const char *n)

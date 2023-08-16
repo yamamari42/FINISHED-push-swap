@@ -10,31 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
-
-
-//////// pushes all except 3 to stack B, small down, big on top ///////
-
-void	pb_leave_three(t_node **stack_a, t_node **stack_b)
-{
-	int	i;
-	int	size;
-	int	mid;
-
-	i = 0;
-	size = stack_size(*stack_a);
-	mid = size / 2;
-	while (size > 3)
-	{
-		pb(stack_a, stack_b);
-		if ((*stack_b)->index <= mid && stack_size(*stack_b) > 1)
-			ra(stack_b);
-		size--;
-	}
-	do_small_algo(stack_a);
-	return ;
-}
 
 ///////// counts No of moves for the 2nd half of the stack B /////////
 
@@ -193,20 +169,6 @@ void	do_cheapest_move(t_node **stack_a, t_node **stack_b)
 	do_move(stack_a, stack_b, cost_a, cost_b);
 }
 
-static void	get_position(t_node **stack)
-{
-	t_node	*tmp;
-	int		i;
-
-	tmp = *stack;
-	i = 0;
-	while (tmp)
-	{
-		tmp->pos = i;
-		tmp = tmp->next;
-		i++;
-	}
-}
 int	get_lowest_index_position(t_node **stack)
 {
 	t_node	*tmp;
@@ -215,7 +177,7 @@ int	get_lowest_index_position(t_node **stack)
 
 	tmp = *stack;
 	lowest_index = INT_MAX;
-	get_position(stack);
+	find_pos(stack);
 	lowest_pos = tmp->pos;
 	while (tmp)
 	{
@@ -229,7 +191,7 @@ int	get_lowest_index_position(t_node **stack)
 	return (lowest_pos);
 }
 
-static void	shift_stack(t_node **stack_a)
+void	shift_stack(t_node **stack_a)
 {
 	int	lowest_pos;
 	int	size;
@@ -254,11 +216,26 @@ static void	shift_stack(t_node **stack_a)
 	}
 }
 
-
-
 ////////////////////////////////////////////////////////////////////
 
-static void	push_all_save_three(t_node **stack_a, t_node **stack_b)
+//void	small_algo2(t_node **stack)
+//{
+//	int		highest;
+//
+//	if (check_if_sorted(stack))
+//		return ;
+//	highest = highest_index(*stack);
+//	if ((*stack)->index == highest)
+//		ra(stack);
+//	else if ((*stack)->next->index == highest)
+//		rra(stack);
+//	if ((*stack)->index > (*stack)->next->index)
+//		sa(stack);
+//}
+
+///////////////// pushes all except 3 last //////////////////////
+
+void	pb_leave_three(t_node **stack_a, t_node **stack_b)
 {
 	int	size;
 	int	pushed;
@@ -283,30 +260,15 @@ static void	push_all_save_three(t_node **stack_a, t_node **stack_b)
 		pb(stack_a, stack_b);
 		pushed++;
 	}
-}
-
-
-void	tiny_sort(t_node **stack)
-{
-	int		highest;
-
-	if (check_if_sorted(stack))
-		return ;
-	highest = highest_index(*stack);
-	if ((*stack)->index == highest)
-		ra(stack);
-	else if ((*stack)->next->index == highest)
-		rra(stack);
-	if ((*stack)->index > (*stack)->next->index)
-		sa(stack);
+	if (check_if_sorted(stack_a) == 0)
+			do_small_algo(stack_a);
 }
 
 /////////////////////////////////////////////////////////////////////
 
 void	do_big_algo(t_node **stack_a, t_node **stack_b)
 {
-	push_all_save_three(stack_a, stack_b);
-	tiny_sort(stack_a);
+	pb_leave_three(stack_a, stack_b);
 	while (*stack_b)
 	{
 		get_target_position(stack_a, stack_b);
