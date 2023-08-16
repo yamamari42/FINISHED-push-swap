@@ -59,3 +59,46 @@ int	stack_size(t_node *stack)
 	}
 	return (size);
 }
+
+////// get lowest index position /////////////
+
+int	get_lowest_index_position(t_node **stack)
+{
+	t_node	*tmp;
+	int		lowest_index;
+	int		lowest_pos;
+
+	tmp = *stack;
+	lowest_index = INT_MAX;
+	find_pos(stack);
+	lowest_pos = tmp->pos;
+	while (tmp)
+	{
+		if (tmp->index < lowest_index)
+		{
+			lowest_index = tmp->index;
+			lowest_pos = tmp->pos;
+		}
+		tmp = tmp->next;
+	}
+	return (lowest_pos);
+}
+
+////////////// get target pos in stack A ////////////////////////////
+
+void	get_target_position(t_node **a, t_node **b)
+{
+	t_node	*tmp_b;
+	int		target_pos;
+
+	tmp_b = *b;
+	find_pos(a);
+	find_pos(b);
+	target_pos = 0;
+	while (tmp_b)
+	{
+		target_pos = get_target(a, tmp_b->index, INT_MAX, target_pos);
+		tmp_b->target_pos = target_pos;
+		tmp_b = tmp_b->next;
+	}
+}

@@ -13,6 +13,7 @@ SRCS = main.c \
 	   sort.c \
 	   small_algo.c \
 	   big_algo.c \
+	   big_algo2.c \
 	   do_move.c
 
 OBJS = $(SRCS:.c=.o)

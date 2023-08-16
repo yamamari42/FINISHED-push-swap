@@ -71,30 +71,48 @@ void	free_stack(t_node **stack)
 //
 /////////// main ////////////////////
 
-int	main(int argc, char **argv)
+int check_if_empty(t_s *s)
 {
-	t_s		s;
-	t_node	*stack_a;
-	t_node	*stack_b;
+    int i = 0;
 
-	s.ac = argc;
-	stack_b = NULL;
-	s.args = NULL;
-	if (stock_args(&s, argc, argv) < 1)
-	{
-		if (stock_args(&s, argc, argv) == 0)
-			err();
-		free_args(&s);
-		exit (1);
-	}
-	if (check_if_number(&s) == 0)
-		return (free_args(&s), err(), 1);
-	if (printargs(&s, &stack_a) == 0)
-		return (free_args(&s), free_stack(&stack_a), err(), 1);
-	free_args(&s);
-	assign_index(&stack_a);
-	sort(&stack_a, &stack_b);
-	free_stack(&stack_a);
-	free_stack(&stack_b);
-	return (0);
+    if (!s->args[i])
+        return (err(), 1);
+    while (s->args[i])
+    {
+        if (ft_strlen(s->args[i]) == 0)
+            return (err(), 1);
+        i++;
+    }
+    return (0);
+}
+
+//////////// main ////////////////////
+
+int    main(int argc, char **argv)
+{
+    t_s        s;
+    t_node    *stack_a;
+    t_node    *stack_b;
+
+    s.ac = argc;
+    stack_b = NULL;
+    s.args = NULL;
+    if (stock_args(&s, argc, argv) < 1)
+    {
+        if (stock_args(&s, argc, argv) == 0)
+            err();
+        free_args(&s);
+        exit (1);
+    }
+    if (check_if_empty(&s) == 1)
+        return (free_args(&s), 1);
+    if (check_if_number(&s) == 0)
+        return (free_args(&s), err(), 1);
+    if (printargs(&s, &stack_a) == 0)
+        return (free_args(&s), free_stack(&stack_a), err(), 1);
+    free_args(&s);
+    assign_index(&stack_a);
+    sort(&stack_a, &stack_b);
+    free_stack(&stack_a);
+    return (0);
 }
