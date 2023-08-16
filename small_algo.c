@@ -6,7 +6,7 @@
 /*   By: mmardere <mmardere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 20:42:23 by mmardere          #+#    #+#             */
-/*   Updated: 2023/08/15 20:46:46 by mmardere         ###   ########.fr       */
+/*   Updated: 2023/08/16 17:23:20 by mmardere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void assign_index(t_node **stack_a)
 
 	i = 0;
 	index = 1;
-	while (index < stack_size(*stack_a) + 1)
+	while (index <= stack_size(*stack_a))
 	{
 		i = 0;
 		tmp = *stack_a;

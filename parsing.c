@@ -6,7 +6,7 @@
 /*   By: mmardere <mmardere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 20:41:49 by mmardere          #+#    #+#             */
-/*   Updated: 2023/08/15 20:56:16 by mmardere         ###   ########.fr       */
+/*   Updated: 2023/08/16 19:21:24 by mmardere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ long long int	upgraded_atoi(const char *n)
 
 ////////// check if INT_MIN or INT_MAX //////////////
 
-int	check_if_int_overflow(const char *n)
+int	check_if_int_overflow(const char *n, t_s *s)
 {
 	long long int	res;
 
@@ -54,6 +54,7 @@ int	check_if_int_overflow(const char *n)
 	else
 	{
 		err();
+		free_args(s);
 		exit (1);
 	}
 }
@@ -70,7 +71,8 @@ t_node	*do_atoi(t_s *s)
 	i = 0;
 	while (s->args[i])
 	{
-		tmp = newnode(check_if_int_overflow(s->args[i]));
+		tmp = newnode(check_if_int_overflow(s->args[i], s));
+		tmp->index = 0;
 		node_add_back(&stack, tmp);
 		i++;
 	}

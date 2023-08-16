@@ -6,16 +6,53 @@
 /*   By: mmardere <mmardere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 20:41:40 by mmardere          #+#    #+#             */
-/*   Updated: 2023/08/15 21:10:21 by mmardere         ###   ########.fr       */
+/*   Updated: 2023/08/16 19:22:08 by mmardere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/////// free ** /////////////////
+
+void	free_args(t_s *s)
+{
+	int	i;
+
+	i = 0;
+	if (s->args == NULL)
+		return ;
+	while (s->args[i])
+	{
+		free(s->args[i]);
+		i++;
+	}
+	free(s->args);
+	s->args = NULL;
+}
+
+//////// error //////////////////
+
 int	err(void)
 {
 	write(2, "Error\n", 6);
 	return (0);
+}
+
+//////////// free stack //////////
+
+void	free_stack(t_node **stack)
+{
+	t_node	*tmp;
+
+	if (!stack || !(*stack))
+		return ;
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
+	}
+	*stack = NULL;
 }
 
 ///////// print stack ///////////////
@@ -47,13 +84,17 @@ int	main(int argc, char **argv)
 	{
 		if (stock_args(&s, argc, argv) == 0)
 			err();
+		free_args(&s);
 		exit (1);
 	}
 	if (check_if_number(&s) == 0)
-		return (err(), 1);
+		return (free_args(&s), err(), 1);
 	if (printargs(&s, &stack_a) == 0)
-		return (err(), 1);
+		return (free_args(&s), free_stack(&stack_a), err(), 1);
+	free_args(&s);
 	assign_index(&stack_a);
 	sort(&stack_a, &stack_b);
+	free_stack(&stack_a);
+	free_stack(&stack_b);
 	return (0);
 }

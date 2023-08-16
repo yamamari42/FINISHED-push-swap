@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
+/*									      */
+/*							  :::	   ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mmardere <mmardere@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/15 20:52:35 by mmardere          #+#    #+#             */
-/*   Updated: 2023/08/15 20:49:11 by mmardere         ###   ########.fr       */
-/*                                                                            */
+/*						      +:+ +:+	      +:+     */
+/*   By: mmardere <mmardere@student.42.fr>	    +#+  +:+	   +#+	      */
+/*						  +#+#+#+#+#+	+#+	      */
+/*   Created: 2023/07/15 20:52:35 by mmardere	       #+#    #+#	      */
+/*   Updated: 2023/08/16 17:00:32 by mmardere         ###   ########.fr       */
+/*									      */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
@@ -19,27 +19,25 @@
 # include "./libft/libft.h"
 
 # define INT_MAX  2147483647
-# define INT_MIN  (-INT_MAX - 1)
+# define INT_MIN -2147483648
 
-
-
-typedef	struct s_node
+typedef struct s_node
 {
-		int	content;
-		int index;
-		int pos;
-		int	to_top_b;//number of moves to be made to get the element on top of the stack B
-		int	target_pos;
-		int	cost_a;
-		int	cost_b;
-		struct s_node *next;
-}	t_node;
+	int				content;
+	int				index;
+	int				pos;
+	int				to_top_b;
+	int				target_pos;
+	int				cost_a;
+	int				cost_b;
+	struct s_node	*next;
+}t_node;
 
 typedef struct structure
 {
-		char	**args;
-		int	ac;
-}	t_s;
+	char	**args;
+	int		ac;
+}t_s;
 
 int				err(void);
 int				split_args(t_s *s, char **argv);
@@ -57,6 +55,8 @@ t_node			*do_atoi(t_s *s);
 t_node			*newnode(int content);
 t_node			*get_tail(t_node *stack);
 t_node			*get_node_before_tail(t_node *stack);
+void			free_args(t_s *s);
+void			free_stack(t_node **stack);
 void			node_add_back(t_node **lst, t_node *new);
 void			push(t_node **src, t_node **dest);
 void			pa(t_node **stack_b, t_node **stack_a);

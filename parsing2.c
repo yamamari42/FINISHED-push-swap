@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing2.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmardere <mmardere@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/16 15:01:22 by mmardere          #+#    #+#             */
+/*   Updated: 2023/08/16 19:04:34 by mmardere         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -17,7 +28,7 @@ int	split_args(t_s *s, char **argv)
 		return (0);
 	}
 	if (s->args[i] == NULL)
-		return (0);
+		return (1);
 	while (s->args[i])
 	{
 		while (s->args[i][j])
@@ -35,17 +46,17 @@ int	stock_args(t_s *s, int argc, char **argv)
 	int	i;
 	int	j;
 
+	i = 1;
+	j = 0;
 	if (argc > 1)
 	{
 		if (argc == 2)
 		{
 			if (split_args(s, argv) == 1)
-					return (1);
+				return (1);
 		}
-		else if (argc > 2)
+		else if (argc > 2 && argv[i][j] != '\0')
 		{
-			i = 1;
-			j = 0;
 			s->args = (char **)malloc(argc * sizeof(char *));
 			while (argv[i] && argv[i] != NULL)
 				s->args[j++] = ft_strdup(argv[i++]);
