@@ -40,6 +40,7 @@ typedef struct structure
 }t_s;
 
 int				err(void);
+int				check_if_empty(t_s *s);
 int				split_args(t_s *s, char **argv);
 int				stock_args(t_s *s, int argc, char **argv);
 int				check_if_number(t_s *s);

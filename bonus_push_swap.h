@@ -16,9 +16,9 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "./libft/libft.h"
 # include "push_swap.h"
 # include "get_next_line.h"
+# include "./libft/libft.h"
 
 # define INT_MAX  2147483647
 # define INT_MIN -2147483648

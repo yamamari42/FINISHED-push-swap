@@ -18,7 +18,7 @@ SRCS = main.c \
 	   big_algo2.c \
 	   do_move.c
 
-SRCS_BONUS	=	ch_main.c \
+SRCS_BONUS = ch_main.c \
 		ch_move.c \
 		ch_push.c \
 		ch_rotate.c \
@@ -41,7 +41,7 @@ LIBFT = libft/libft.a
 
 LDFLAGS = -L libft -lft
 
-all : $(NAME) $(OBJS_BONUS)
+all : $(NAME) $(CHECKER)
 
 $(NAME) : $(OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) -o $@
