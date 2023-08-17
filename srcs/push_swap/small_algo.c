@@ -6,13 +6,13 @@
 /*   By: mmardere <mmardere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 20:42:23 by mmardere          #+#    #+#             */
-/*   Updated: 2023/08/16 17:23:20 by mmardere         ###   ########.fr       */
+/*   Updated: 2023/08/17 17:07:18 by mmardere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void assign_index(t_node **stack_a)
+void	assign_index(t_node **stack_a)
 {
 	t_node	*tmp;
 	int		index;

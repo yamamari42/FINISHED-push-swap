@@ -6,7 +6,7 @@
 /*   By: mmardere <mmardere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 20:42:48 by mmardere          #+#    #+#             */
-/*   Updated: 2023/08/16 17:58:44 by mmardere         ###   ########.fr       */
+/*   Updated: 2023/08/17 16:42:16 by mmardere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	highest_index(t_node *stack)
 		stack = stack->next;
 	}
 	return (index);
-
 }
 
 /////// get node with lowest index ////////////

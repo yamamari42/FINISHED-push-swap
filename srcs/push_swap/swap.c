@@ -6,10 +6,9 @@
 /*   By: mmardere <mmardere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 20:42:36 by mmardere          #+#    #+#             */
-/*   Updated: 2023/08/17 14:33:51 by mmardere         ###   ########.fr       */
+/*   Updated: 2023/08/17 16:45:01 by mmardere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 
@@ -45,4 +44,3 @@ void	ss(t_node **stack_a, t_node **stack_b)
 	sb(stack_b);
 	write(1, "ss\n", 3);
 }
-

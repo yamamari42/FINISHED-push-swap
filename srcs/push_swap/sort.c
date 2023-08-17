@@ -6,7 +6,7 @@
 /*   By: mmardere <mmardere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 20:42:31 by mmardere          #+#    #+#             */
-/*   Updated: 2023/08/15 20:45:46 by mmardere         ###   ########.fr       */
+/*   Updated: 2023/08/17 16:44:37 by mmardere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,3 @@ int	sort(t_node **stack_a, t_node **stack_b)
 	}
 	return (0);
 }
-

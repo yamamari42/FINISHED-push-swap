@@ -6,10 +6,9 @@
 /*   By: mmardere <mmardere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 20:42:36 by mmardere          #+#    #+#             */
-/*   Updated: 2023/08/17 14:34:01 by mmardere         ###   ########.fr       */
+/*   Updated: 2023/08/17 17:08:00 by mmardere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "bonus_push_swap.h"
 
@@ -45,4 +44,3 @@ void	ch_ss(t_node **stack_a, t_node **stack_b)
 	ch_sb(stack_b);
 	return ;
 }
-

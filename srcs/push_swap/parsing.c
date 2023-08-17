@@ -6,7 +6,7 @@
 /*   By: mmardere <mmardere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 20:41:49 by mmardere          #+#    #+#             */
-/*   Updated: 2023/08/16 19:21:24 by mmardere         ###   ########.fr       */
+/*   Updated: 2023/08/17 17:06:23 by mmardere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ t_node	*do_atoi(t_s *s)
 	return (stack);
 }
 
-
 /////////////// checks for number doubles /////////////
 
 int	check_double(t_node **stack_a)
@@ -107,7 +106,6 @@ int	check_double(t_node **stack_a)
 int	printargs(t_s *s, t_node **stack_a)
 {
 	*stack_a = do_atoi(s);
-
 	if (check_double(stack_a) == 0)
 		return (0);
 	return (1);

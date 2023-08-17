@@ -6,7 +6,7 @@
 /*   By: mmardere <mmardere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 15:01:22 by mmardere          #+#    #+#             */
-/*   Updated: 2023/08/17 15:08:27 by mmardere         ###   ########.fr       */
+/*   Updated: 2023/08/17 17:07:00 by mmardere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,33 +41,33 @@ int	split_args(t_s *s, char **argv)
 
 ///////// stock arguments in a ** ///////////////////
 
-int    stock_args(t_s *s, int argc, char **argv)
+int	stock_args(t_s *s, int argc, char **argv)
 {
-    int    i;
-    int    j;
+	int	i;
+	int	j;
 
-    i = 1;
-    j = 0;
-    if (argc > 1)
-    {
-        if (argc == 2)
-        {
-            if (split_args(s, argv) == 1)
-                return (1);
-        }
-        else if (argc > 2 && argv[i][j] != '\0')
-        {
-            s->args = (char **)malloc(argc * sizeof(char *));
-            if (!s->args)
-                return (1);
-            while (argv[i] && argv[i] != NULL)
-                s->args[j++] = ft_strdup(argv[i++]);
-            s->args[j] = NULL;
-            return (1);
-        }
-        return (0);
-    }
-    return (-1);
+	i = 1;
+	j = 0;
+	if (argc > 1)
+	{
+		if (argc == 2)
+		{
+			if (split_args(s, argv) == 1)
+				return (1);
+		}
+		else if (argc > 2 && argv[i][j] != '\0')
+		{
+			s->args = (char **)malloc(argc * sizeof(char *));
+			if (!s->args)
+				return (1);
+			while (argv[i] && argv[i] != NULL)
+				s->args[j++] = ft_strdup(argv[i++]);
+			s->args[j] = NULL;
+			return (1);
+		}
+		return (0);
+	}
+	return (-1);
 }
 
 ////////// check if  + or - /////////////////////

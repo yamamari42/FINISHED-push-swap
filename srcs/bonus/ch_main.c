@@ -6,7 +6,7 @@
 /*   By: mmardere <mmardere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 20:41:40 by mmardere          #+#    #+#             */
-/*   Updated: 2023/08/17 15:40:25 by mmardere         ###   ########.fr       */
+/*   Updated: 2023/08/17 17:07:34 by mmardere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	checker(t_node **stack_a, t_node **stack_b)
 		{
 			free(line);
 			ch_free_stack(stack_a);
-			err();m
+			err();
 			exit (1);
 		}
 		exec_move(stack_a, stack_b, line);
@@ -114,4 +114,3 @@ int	main(int argc, char **argv)
 	ch_free_stack(&stack_aa);
 	return (0);
 }
-

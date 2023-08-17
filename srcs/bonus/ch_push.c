@@ -6,7 +6,7 @@
 /*   By: mmardere <mmardere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 20:42:04 by mmardere          #+#    #+#             */
-/*   Updated: 2023/08/17 14:33:46 by mmardere         ###   ########.fr       */
+/*   Updated: 2023/08/17 17:10:05 by mmardere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,11 @@ void	ch_push(t_node **src, t_node **dest)
 void	ch_pa(t_node **stack_b, t_node **stack_a)
 {
 	ch_push(stack_b, stack_a);
-		return ;
+	return ;
 }
 
 void	ch_pb(t_node **stack_a, t_node **stack_b)
 {
 	ch_push(stack_a, stack_b);
-		return ;
+	return ;
 }
-

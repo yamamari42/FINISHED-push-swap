@@ -6,7 +6,7 @@
 /*   By: mmardere <mmardere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 20:41:40 by mmardere          #+#    #+#             */
-/*   Updated: 2023/08/17 14:32:39 by mmardere         ###   ########.fr       */
+/*   Updated: 2023/08/17 17:01:34 by mmardere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,26 @@
 
 void	exec_move(t_node **stack_a, t_node **stack_b, char *line)
 {
-	if (ft_strcmp(line, "sa\n"))
+	if (!ft_strcmp(line, "sa\n"))
 		ch_sa(stack_a);
-	else if (ft_strcmp(line, "sb\n"))
+	else if (!ft_strcmp(line, "sb\n"))
 		ch_sb(stack_b);
-	else if (ft_strcmp(line, "ss\n"))
+	else if (!ft_strcmp(line, "ss\n"))
 		ch_ss(stack_a, stack_b);
-	else if (ft_strcmp(line, "ra\n"))
+	else if (!ft_strcmp(line, "ra\n"))
 		ch_ra(stack_a);
-	else if (ft_strcmp(line, "rb\n"))
+	else if (!ft_strcmp(line, "rb\n"))
 		ch_rb(stack_b);
-	else if (ft_strcmp(line, "rr\n"))
+	else if (!ft_strcmp(line, "rr\n"))
 		ch_rr(stack_a, stack_b);
-	else if (ft_strcmp(line, "rra\n"))
+	else if (!ft_strcmp(line, "rra\n"))
 		ch_rra(stack_a);
-	else if (ft_strcmp(line, "rrb\n"))
+	else if (!ft_strcmp(line, "rrb\n"))
 		ch_rrb(stack_b);
-	else if (ft_strcmp(line, "rrr\n"))
+	else if (!ft_strcmp(line, "rrr\n"))
 		ch_rrr(stack_a, stack_b);
-	else if (ft_strcmp(line, "pa\n"))
+	else if (!ft_strcmp(line, "pa\n"))
 		ch_pa(stack_b, stack_a);
-	else if (ft_strcmp(line, "pb\n"))
+	else if (!ft_strcmp(line, "pb\n"))
 		ch_pb(stack_a, stack_b);
 }

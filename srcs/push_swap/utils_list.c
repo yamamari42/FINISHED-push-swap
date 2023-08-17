@@ -6,7 +6,7 @@
 /*   By: mmardere <mmardere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 20:42:41 by mmardere          #+#    #+#             */
-/*   Updated: 2023/08/17 15:33:37 by mmardere         ###   ########.fr       */
+/*   Updated: 2023/08/17 16:44:13 by mmardere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,31 +101,4 @@ void	get_target_position(t_node **a, t_node **b)
 		tmp_b->target_pos = target_pos;
 		tmp_b = tmp_b->next;
 	}
-}
-long long int	ch_upgraded_atoi(const char *n)
-{
-	int				i;
-	long long int	res;
-	int				sign;
-
-	i = 0;
-	res = 0;
-	sign = 1;
-	while (n[i] == 32 || (n[i] >= 9 && n[i] <= 13))
-		i++;
-	if (n[i] == '-')
-	{
-		sign *= -1;
-		i++;
-	}
-	else if (n[i] == '+')
-		i++;
-	while (n[i] == '0')
-			i++;
-	while (n[i] != '\0' && (n[i] >= '0' && n[i] <= '9'))
-	{
-		res = res * 10 + (n[i] - '0');
-		i++;
-	}
-	return (res * sign);
 }

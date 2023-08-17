@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*									      */
-/*							  :::	   ::::::::   */
-/*   bonus_push_swap.h                                        :+:      :+:    :+:   */
-/*						      +:+ +:+	      +:+     */
-/*   By: mmardere <mmardere@student.42.fr>	    +#+  +:+	   +#+	      */
-/*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/07/15 20:52:35 by mmardere	       #+#    #+#	      */
-/*   Updated: 2023/08/16 17:00:32 by mmardere         ###   ########.fr       */
-/*									      */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   bonus_push_swap.h                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmardere <mmardere@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/17 17:13:16 by mmardere          #+#    #+#             */
+/*   Updated: 2023/08/17 17:13:21 by mmardere         ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BONUS_PUSH_SWAP_H
@@ -42,20 +42,20 @@ void			exec_move(t_node **stack_a, t_node **stack_b, char *line);
 int				ch_check_if_empty(t_s *s);
 int				ft_strcmp(char *s1, char *s2);
 void			ch_free_args(t_s *s);
-int	ch_printargs(t_s *s, t_node **stack_a);
-int	ch_check_if_number(t_s *s);
-int   	ch_stock_args(t_s *s, int argc, char **argv);
-int	ch_stack_size(t_node *stack);
-int	ch_check_if_sorted(t_node **stack_a);
-int	ch_is_sign(char c);
-int	ch_check_double(t_node **stack_a);
-void	ch_free_stack(t_node **stack);
-t_node	*ch_do_atoi(t_s *s);
-int	ch_split_args(t_s *s, char **argv);
-int	ch_check_if_int_overflow(const char *n, t_s *s);
-t_node	*ch_get_tail(t_node *stack);
-void	ch_node_add_back(t_node **lst, t_node *new);
-t_node	*ch_newnode(int content);
+int				ch_printargs(t_s *s, t_node **stack_a);
+int				ch_check_if_number(t_s *s);
+int				ch_stock_args(t_s *s, int argc, char **argv);
+int				ch_stack_size(t_node *stack);
+int				ch_check_if_sorted(t_node **stack_a);
+int				ch_is_sign(char c);
+int				ch_check_double(t_node **stack_a);
+void			ch_free_stack(t_node **stack);
+t_node			*ch_do_atoi(t_s *s);
+int				ch_split_args(t_s *s, char **argv);
+int				ch_check_if_int_overflow(const char *n, t_s *s);
+t_node			*ch_get_tail(t_node *stack);
+void			ch_node_add_back(t_node **lst, t_node *new);
+t_node			*ch_newnode(int content);
 long long int	ch_upgraded_atoi(const char *n);
-t_node	*ch_get_node_before_tail(t_node *stack);
+t_node			*ch_get_node_before_tail(t_node *stack);
 #endif

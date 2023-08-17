@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*									      */
-/*							  :::	   ::::::::   */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
-/*						      +:+ +:+	      +:+     */
-/*   By: mmardere <mmardere@student.42.fr>	    +#+  +:+	   +#+	      */
-/*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/07/15 20:52:35 by mmardere	       #+#    #+#	      */
-/*   Updated: 2023/08/16 17:00:32 by mmardere         ###   ########.fr       */
-/*									      */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmardere <mmardere@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/17 17:11:00 by mmardere          #+#    #+#             */
+/*   Updated: 2023/08/17 17:11:28 by mmardere         ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
@@ -53,7 +53,8 @@ int				sort(t_node **stack_a, t_node **stack_b);
 int				lowest_index(t_node **stack_a);
 int				highest_index(t_node *stack);
 int				get_lowest_index_position(t_node **stack);
-int				get_target(t_node **a, int b_idx, int target_idx, int target_pos);
+int				get_target(t_node **a, int b_idx, int target_idx,
+					int target_pos);
 void			shift_stack(t_node **stack_a);
 t_node			*do_atoi(t_s *s);
 t_node			*newnode(int content);
@@ -86,8 +87,5 @@ void			pb_leave_three(t_node **stack_a, t_node **stack_b);
 void			find_pos(t_node **stack);
 void			get_target_position(t_node **a, t_node **b);
 void			do_move(t_node **a, t_node **b, int cost_a, int cost_b);
-//void			get_target_pos(t_node **stack_a, t_node **stack_b);
-//void			get_to_top_of_b(t_node **stack_b);
-//int			get_rra_count(t_node *tmp2);
 
 #endif

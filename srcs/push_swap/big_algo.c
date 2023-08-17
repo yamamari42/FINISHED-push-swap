@@ -6,7 +6,7 @@
 /*   By: mmardere <mmardere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 20:41:17 by mmardere          #+#    #+#             */
-/*   Updated: 2023/08/15 21:00:35 by mmardere         ###   ########.fr       */
+/*   Updated: 2023/08/17 16:41:39 by mmardere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	pb_leave_three(t_node **stack_a, t_node **stack_b)
 		pushed++;
 	}
 	if (check_if_sorted(stack_a) == 0)
-			do_small_algo(stack_a);
+		do_small_algo(stack_a);
 }
 
 /////////////////////////////////////////////////////////////////////

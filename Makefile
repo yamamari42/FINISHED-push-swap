@@ -1,3 +1,14 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mmardere <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/08/17 16:21:43 by mmardere          #+#    #+#              #
+#    Updated: 2023/08/17 16:21:49 by mmardere         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
 NAME = push_swap
 
@@ -19,14 +30,17 @@ SRCS =	srcs/push_swap/main.c \
 		srcs/push_swap/do_move.c \
 
 SRCS_BONUS =	srcs/bonus/ch_main_utils.c \
-				srcs/bonus/ch_main.c \
-				srcs/bonus/ch_move.c \
-				srcs/bonus/ch_push.c \
-				srcs/bonus/ch_swap.c \
-				srcs/bonus/ch_rotate.c \
-				srcs/bonus/ch_revrotate.c \
-				srcs/get_next_line/get_next_line.c \
-				srcs/get_next_line/get_next_line_utils.c \
+		srcs/bonus/ch_main_utils2.c \
+		srcs/bonus/ch_main_utils3.c \
+		srcs/bonus/ch_main_utils4.c \
+		srcs/bonus/ch_main.c \
+		srcs/bonus/ch_move.c \
+		srcs/bonus/ch_push.c \
+		srcs/bonus/ch_swap.c \
+		srcs/bonus/ch_rotate.c \
+		srcs/bonus/ch_revrotate.c \
+		srcs/get_next_line/get_next_line.c \
+		srcs/get_next_line/get_next_line_utils.c \
 
 OBJS = $(SRCS:.c=.o)
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
