@@ -6,7 +6,7 @@
 /*   By: mmardere <mmardere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 20:42:11 by mmardere          #+#    #+#             */
-/*   Updated: 2023/08/17 17:07:46 by mmardere         ###   ########.fr       */
+/*   Updated: 2023/08/17 17:43:57 by mmardere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	ch_rev_rotate(t_node **stack)
 	t_node	*tail;
 	t_node	*before_tail;
 
+	if (!(*stack))
+		return ;
 	tail = ch_get_tail(*stack);
 	before_tail = ch_get_node_before_tail(*stack);
 	tmp = *stack;
@@ -47,7 +49,10 @@ void	ch_rrb(t_node **stack_b)
 
 void	ch_rrr(t_node **stack_a, t_node **stack_b)
 {
-	ch_rev_rotate(stack_a);
-	ch_rev_rotate(stack_b);
+	if ((*stack_b) && (*stack_a))
+	{
+		ch_rev_rotate(stack_a);
+		ch_rev_rotate(stack_b);
+	}
 	return ;
 }

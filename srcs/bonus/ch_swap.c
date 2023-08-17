@@ -6,7 +6,7 @@
 /*   By: mmardere <mmardere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 20:42:36 by mmardere          #+#    #+#             */
-/*   Updated: 2023/08/17 17:08:00 by mmardere         ###   ########.fr       */
+/*   Updated: 2023/08/17 17:47:24 by mmardere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ void	ch_sb(t_node **stack_b)
 
 void	ch_ss(t_node **stack_a, t_node **stack_b)
 {
-	ch_sa(stack_a);
-	ch_sb(stack_b);
+	if ((*stack_b) && (*stack_a))
+	{
+		ch_sa(stack_a);
+		ch_sb(stack_b);
+	}
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: mmardere <mmardere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 20:42:17 by mmardere          #+#    #+#             */
-/*   Updated: 2023/08/17 17:10:09 by mmardere         ###   ########.fr       */
+/*   Updated: 2023/08/17 17:45:24 by mmardere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ch_rotate(t_node **stack)
 	t_node	*tmp;
 	t_node	*tail;
 
+	if ((!*stack))
+		return ;
 	tmp = *stack;
 	*stack = (*stack)->next;
 	tail = ch_get_tail(*stack);
@@ -38,7 +40,10 @@ void	ch_rb(t_node **stack_b)
 
 void	ch_rr(t_node **stack_a, t_node **stack_b)
 {
-	ch_rotate(stack_a);
-	ch_rotate(stack_b);
+	if ((*stack_b) && (*stack_a))
+	{
+		ch_rotate(stack_b);
+		ch_rotate(stack_a);
+	}
 	return ;
 }
