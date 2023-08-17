@@ -1,6 +1,8 @@
 
 NAME = push_swap
 
+CHECKER = checker
+
 SRCS = main.c \
 	   parsing.c \
 	   parsing2.c \
@@ -16,7 +18,17 @@ SRCS = main.c \
 	   big_algo2.c \
 	   do_move.c
 
+SRCS_BONUS	=	ch_main.c \
+		ch_move.c \
+		ch_push.c \
+		ch_rotate.c \
+		ch_revrotate.c \
+		ch_swap.c \
+		get_next_line_utils.c \
+		get_next_line.c
+
 OBJS = $(SRCS:.c=.o)
+OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 #Regle pour le lieu des .objets
 
 CC = clang
@@ -29,10 +41,13 @@ LIBFT = libft/libft.a
 
 LDFLAGS = -L libft -lft
 
-all : $(NAME)
+all : $(NAME) $(OBJS_BONUS)
 
 $(NAME) : $(OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) -o $@
+
+$(CHECKER) : $(OBJS_BONUS) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJS_BONUS) $(LDFLAGS) -o $@
 
 %.o: %.c
 	@${CC} ${CFLAGS} -I./ -c $< -o ${<:.c=.o}
@@ -42,10 +57,10 @@ $(LIBFT) :
 
 clean :
 	make clean -C libft
-	$(RM) $(OBJS) $(LIBFT)
+	$(RM) $(OBJS) $(OBJS_BONUS) $(LIBFT)
 
 fclean : clean
-	$(RM) ${NAME}
+	$(RM) ${NAME} ${CHECKER}
 
 re : fclean all
 
